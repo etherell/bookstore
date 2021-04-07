@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="0.102188" timestamp="2021-04-08T03:25:10+03:00" hostname="et-ASUS">
+<properties>
+<property name="seed" value="48525"/>
+</properties>
+<testcase classname="spec.requests.home_spec" name="Home #index when success request returns successful status" file="./spec/requests/home_spec.rb" time="0.092438"></testcase>
+<testcase classname="spec.requests.home_spec" name="Home #index when success request renders index template" file="./spec/requests/home_spec.rb" time="0.008099"></testcase>
+</testsuite>

@@ -11,11 +11,20 @@ PreCommit:
     enabled: true
     on_warn: fail
 
+  RailsBestPractices:
+    enabled: true
+    on_warn: fail
+
+  # DatabaseConsistency:
+  #   enabled: true
+  #   quiet: false
+  #   command: ['bundle', 'exec', 'database_consistency']
+
 PrePush:
   Brakeman:
     enabled: true
     on_warn: fail
-    
+
   RSpec:
     enabled: true
     on_warn: fail
