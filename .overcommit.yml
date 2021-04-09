@@ -20,15 +20,6 @@ PreCommit:
   #   quiet: false
   #   command: ['bundle', 'exec', 'database_consistency']
 
-  RailsBestPractices:
-    enabled: true
-    on_warn: fail
-
-  # DatabaseConsistency:
-  #   enabled: true
-  #   quiet: false
-  #   command: ['bundle', 'exec', 'database_consistency']
-
 PrePush:
   Brakeman:
     enabled: true
