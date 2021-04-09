@@ -27,6 +27,9 @@ Style/Documentation:
 Rails/FilePath:
   Enabled: false
 
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
 Layout/LineLength:
   Max: 120
 
