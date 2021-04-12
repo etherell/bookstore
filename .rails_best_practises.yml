@@ -1,5 +1,1 @@
-RemovedUnusedMethodsInControllersCheck: {
-  except_methods: [
-    'Users::RegistrationsController#passwords',
-  ]
-}
+RemovedUnusedMethodsInControllersCheck:

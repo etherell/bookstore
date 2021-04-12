@@ -23,12 +23,12 @@
           %li
             %a{type: "button", 'data-toggle': "collapse", href: "#menu", 'aria-expanded': "false", 'aria-controls': "menu"} Shop
             %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
+              - categories.each do |category|
+                %li
+                  = link_to category.title, books_path(category_id: category.id), class: 'collapse-link'
+              %li.divider{role: "separator"}
               %li
-                %a.collapse-link{href: "#"}= t('shared.header.mobile_development')
-              %li
-                %a.collapse-link{href: "#"}= t('shared.header.photo')
-              %li
-                %a.collapse-link{href: "#"}= t('shared.header.web_design')
+                %a{href: "#"}= t('shared.header.log_out')
           %li
             %a{href: "#"}= t('shared.header.my_account')
       .hidden-xs
@@ -38,12 +38,9 @@
           %li.dropdown
             %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"} Shop
             %ul.dropdown-menu
-              %li
-                %a{href: "#"}= t('shared.header.mobile_development')
-              %li
-                %a{href: "#"}= t('shared.header.photo')
-              %li
-                %a{href: "#"}= t('shared.header.web_design')
+              - categories.each do |category|
+                %li
+                  = link_to category.title, books_path(category_id: category.id), class: 'collapse-link'
               %li.divider{role: "separator"}
               %li
                 %a{href: "#"}= t('shared.header.log_out')

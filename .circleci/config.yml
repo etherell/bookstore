@@ -35,9 +35,9 @@ commands:
       - run:
           name: rails best practices
           command: bundle exec rails_best_practices .
-      - run:
-          name: database consistency
-          command: bundle exec database_consistency
+      # - run:
+      #     name: database consistency
+      #     command: bundle exec database_consistency
 
   run_specs:
     steps:
