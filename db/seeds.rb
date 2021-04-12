@@ -4,7 +4,7 @@ ActiveRecord::Base.transaction do
   books = 25.times.collect do
             Book.create(
               title: Faker::Book.title,
-              description: Faker::Lorem.sentence,
+              description: Faker::Lorem.paragraph(sentence_count: 25),
               category_id: categories.sample.id,
               price_cents: rand(500...10000)
             )

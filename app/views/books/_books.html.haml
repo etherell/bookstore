@@ -3,4 +3,4 @@
 - if books.next_page
   .text-center.view-more-btn
     = link_to request.params.merge(page: books.next_page), remote: true do
-      %button.btn.btn-primary View More
+      %button.btn.btn-primary= t('books.index.view_more')

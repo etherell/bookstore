@@ -26,11 +26,23 @@ en:
 
   books:
     index:
+      view_more: View more
+      all_filter: All
       sorting:
         newest: Newest first
         popular: Popular first
         low_price: 'Price: Low to hight'
         high_price: 'Price: High to low'
+
+    show:
+      back_to_results: Back to results
+      description: Description
+      read_more: Read more
+      publication_year: Year of publication
+      dimensions: Dimensions
+      materials: Materials
+
+
 
   # Default
   activerecord:
