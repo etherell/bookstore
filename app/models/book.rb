@@ -10,5 +10,5 @@ class Book < ApplicationRecord
 
   monetize :price_cents, as: 'price'
 
-  scope :by_category, ->(category_id) { where(category_id: category_id) }
+  scope :filter_by_category, ->(category_id = nil) { category_id ? where(category_id: category_id) : all }
 end

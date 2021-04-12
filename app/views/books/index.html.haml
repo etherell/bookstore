@@ -1,10 +1,6 @@
 %main.container
   %h1.general-title-margin Сatalog
-  = render 'filters', categories: @categories
+  = render 'menu', categories: @categories
   .mb-120
-    .row
-      = render @books
-    .text-center
-      -# %button.btn.btn-primary View More
-      -# = pagy_bootstrap_nav_js(@pagy)
-      != pagy_nav(@pagy)
+    = render 'books', books: @books
+

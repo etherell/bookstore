@@ -1,4 +1,4 @@
-require: 
+require:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
@@ -28,6 +28,9 @@ Rails/FilePath:
   Enabled: false
 
 Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Lint/MissingSuper:
   Enabled: false
 
 Layout/LineLength:

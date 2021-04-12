@@ -1,4 +1,37 @@
 en:
+  # Custom
+  shared:
+    header:
+      bookstore: Bookstore
+      home: Home
+      mobile_development: Mobile development
+      photo: Photo
+      web_design: Web design
+      my_account: My account
+      log_out: Log out
+
+    footer:
+      home: Home
+      shop: Shop
+      orders: Orders
+      settings: Settings
+
+  home:
+    index:
+      welcome: Welcome to our amazing Bookstore!
+      description: We pore through hundreds of new books each month and select the five best we can find to share with our members.
+      get_started: Get started
+      best_sellers: Best Sellers
+      buy_now: Buy Now
+
+  books:
+    index:
+      sorting:
+        newest: Newest first
+        popular: Popular first
+        low_price: 'Price: Low to hight'
+        high_price: 'Price: High to low'
+
   # Default
   activerecord:
     errors:
@@ -213,28 +246,3 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-
-  # Custom
-  shared:
-    header:
-      bookstore: Bookstore
-      home: Home
-      mobile_development: Mobile development
-      photo: Photo
-      web_design: Web design
-      my_account: My account
-      log_out: Log out
-
-    footer:
-      home: Home
-      shop: Shop
-      orders: Orders
-      settings: Settings
-
-  home:
-    index:
-      welcome: Welcome to our amazing Bookstore!
-      description: We pore through hundreds of new books each month and select the five best we can find to share with our members.
-      get_started: Get started
-      best_sellers: Best Sellers
-      buy_now: Buy Now

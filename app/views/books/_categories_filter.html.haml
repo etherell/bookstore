@@ -1,0 +1,9 @@
+%li.mr-35
+  = link_to request.params.merge(category_id: nil), class: 'filter-link' do
+    = 'All'
+    %span.badge.general-badge= Book.all.count
+- categories.each do |category|
+  %li.mr-35
+    = link_to request.params.merge(category_id: category.id), class: 'filter-link' do
+      = category.title
+      %span.badge.general-badge= category.books.count
