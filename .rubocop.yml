@@ -26,6 +26,15 @@ Style/Documentation:
 Rails/FilePath:
   Enabled: false
 
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Style/ArgumentsForwarding:
+  Enabled: false
+
 Layout/LineLength:
   Max: 120
 
