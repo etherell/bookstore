@@ -7,11 +7,14 @@ ruby(File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip)
 
 gem 'aasm', '~> 5.1', '>= 5.1.1'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'draper', '~> 4.0', '>= 4.0.1'
 gem 'jbuilder', '~> 2.7'
 gem 'mini_magick', '~> 4.11'
+gem 'money-rails', '~> 1.14'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
+gem 'rails-i18n', '~> 6.0'
 gem 'require_all', '~> 3.0'
 gem 'will_paginate', '~> 3.3'
 # gem 'redis', '~> 4.0'
@@ -40,6 +43,7 @@ group :development, :test do
   gem 'brakeman', '~> 5.0', require: false
   gem 'bundler-audit', '~> 0.8.0', require: false
   gem 'database_consistency', '~> 0.8.13', require: false
+  gem 'faker', '~> 2.17'
   gem 'fasterer', '~> 0.9.0', require: false
   gem 'overcommit', '~> 0.57.0'
   gem 'rails_best_practices', '~> 1.20', require: false

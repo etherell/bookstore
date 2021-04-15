@@ -3,6 +3,6 @@
   = render 'partials/head'
 
   %body
-    = render 'partials/header', cached: true
+    = render 'partials/header', categories: @categories, cached: true
     = yield
     = render 'partials/footer', cached: true
