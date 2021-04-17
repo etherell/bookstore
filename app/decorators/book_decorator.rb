@@ -9,11 +9,19 @@ class BookDecorator < Draper::Decorator
   end
 
   def authors_names
-    authors.pluck(:name).join(', ')
+    authors.present? ? authors.pluck(:name).join(', ') : ''
   end
 
   def short_title
     title.truncate(27, separator: /\s/)
+  end
+
+  def short_description
+    description.truncate(250, separator: /\s/)
+  end
+
+  def dimensions?
+    height && width && depth
   end
 
   def dimensions
@@ -21,6 +29,6 @@ class BookDecorator < Draper::Decorator
   end
 
   def meterials_names
-    materials.pluck(:name).map(&:capitalize).join(', ')
+    materials.present? ? materials.pluck(:name).map(&:capitalize).join(', ') : ''
   end
 end

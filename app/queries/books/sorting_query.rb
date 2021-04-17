@@ -15,7 +15,7 @@ module Books
     def call
       return @books if @sorting.blank?
 
-      order_books
+      order_books.includes(%i[image_attachment authors])
     end
 
     private
