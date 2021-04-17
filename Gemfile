@@ -63,6 +63,7 @@ end
 group :test do
   gem 'capybara', '~> 3.35', '>= 3.35.3'
   gem 'capybara-screenshot', '~> 1.0', '>= 1.0.25'
+  gem 'factory_bot', '~> 6.1'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'

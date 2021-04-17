@@ -2,12 +2,12 @@
 
 module BooksHelper
   def category_filter_placeholder(params, categories)
-    return categories.first.title unless params[:category_id]
+    categories.find(params[:category_id]).title
+  rescue ActiveRecord::RecordNotFound
+    categories.first.title
+  end
 
-    begin
-      categories.find(params[:category_id]).title
-    rescue ActiveRecord::RecordNotFound
-      categories.first.title
-    end
+  def back_to_results_link(request_referer)
+    request_referer.presence || books_path
   end
 end

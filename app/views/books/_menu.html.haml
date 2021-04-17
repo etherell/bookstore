@@ -2,16 +2,18 @@
   .dropdowns.pull-right
     .dropdown.width-240
       = render 'sorting'
-  %ul.list-inline.pt-10.mb-25.mr-240
-    = render 'categories_filter', categories: categories
-.dropdowns.mb-25.visible-xs
-  %p.lead.small.mb-10 Filter by category
-  .dropdown
-    %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-      = category_filter_placeholder(params, categories)
-      %i.fa.fa-angle-down.dropdown-icon.pull-right
-    %ul.dropdown-menu
+  - if categories.present?
+    %ul.list-inline.pt-10.mb-25.mr-240
       = render 'categories_filter', categories: categories
-  %p.lead.small.mb-10 Sort by
+.dropdowns.mb-25.visible-xs
+  - if categories.present?
+    %p.lead.small.mb-10= t('.filter_title')
+    .dropdown
+      %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+        = category_filter_placeholder(params, categories)
+        %i.fa.fa-angle-down.dropdown-icon.pull-right
+      %ul.dropdown-menu
+        = render 'categories_filter', categories: categories
+  %p.lead.small.mb-10= t('.sorting_title')
   .dropdown
     = render 'sorting'

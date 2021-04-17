@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Material, type: :model do
+RSpec.describe Author, type: :model do
   describe 'associations' do
     it { is_expected.to have_and_belong_to_many(:books).class_name('Book') }
   end

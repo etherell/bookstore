@@ -1,38 +1,44 @@
 en:
   homes:
     index:
-      welcome: 'Welcome to our amazing Bookstore!'
-      description: 'We pore through hundreds of new books each month and select the five best we can find to share with our members.'
-      get_started: 'Get started'
-      best_sellers: 'Best Sellers'
-      buy_now: 'Buy Now'
+      welcome: Welcome to our amazing Bookstore!
+      description: We pore through hundreds of new books each month and select the five best we can find to share with our members.
+      get_started: Get started
+      best_sellers: Best Sellers
+      buy_now: Buy Now
 
   partials:
     footer:
-      home: 'Home'
-      shop: 'Shop'
-      orders: 'Orders'
-      settings: 'Settings'
+      home: Home
+      shop: Shop
+      orders: Orders
+      settings: Settings
 
     header:
-      bookstore: 'Bookstore'
-      home: 'Home'
-      shop: 'Shop'
-      mobile_development: 'Mobile development'
-      photo: 'Photo'
-      web_design: 'Web design'
-      my_account: 'My account'
-      log_out: 'Log out'
+      bookstore: Bookstore
+      home: Home
+      shop: Shop
+      mobile_development: Mobile development
+      photo: Photo
+      web_design: Web design
+      my_account: My account
+      log_out: Log out
 
   books:
     index:
+      title: Catalog
+    books:
       view_more: View more
+    menu:
+      filter_title: Filter by category
+      sorting_title: Sort by
+    categories_filter:
       all_filter: All
-      sorting:
-        newest: Newest first
-        popular: Popular first
-        low_price: 'Price: Low to hight'
-        high_price: 'Price: High to low'
+    sorting:
+      newest: Newest first
+      popular: Popular first
+      low_price: 'Price: Low to hight'
+      high_price: 'Price: High to low'
 
     show:
       back_to_results: Back to results
@@ -41,3 +47,4 @@ en:
       publication_year: Year of publication
       dimensions: Dimensions
       materials: Materials
+      add_to_cart:
