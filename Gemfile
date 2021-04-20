@@ -23,15 +23,17 @@ gem 'will_paginate', '~> 3.3'
 # authentication and authorization
 gem 'activeadmin', '~> 2.9'
 gem 'bcrypt', '~> 3.1.7'
-gem 'devise', '~> 4.7', '>= 4.7.3'
-gem 'omniauth-facebook', '~> 8.0'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
+gem 'omniauth', '~> 1.9.1'
+gem 'omniauth-facebook', '8.0.0'
+gem 'omniauth-rails_csrf_protection'
 gem 'pundit', '~> 2.1'
 
 # frontend
 gem 'gon', '~> 6.4'
 gem 'haml', '~> 5.2', '>= 5.2.1'
 gem 'sass-rails', '>= 6'
-gem 'turbolinks', '~> 5'
+gem 'simple_form', '~> 5.1'
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
@@ -57,6 +59,7 @@ end
 
 group :development do
   gem 'bullet', '~> 6.1', '>= 6.1.4'
+  gem 'letter_opener', '~> 1.7'
   gem 'listen', '~> 3.2'
   gem 'spring', '~> 2.1', '>= 2.1.1'
   gem 'spring-watcher-listen', '~> 2.0.0'

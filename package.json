@@ -9,7 +9,8 @@
     "bootstrap-sass": "^3.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "toastr": "^2.1.4"
   },
   "version": "0.1.0",
   "devDependencies": {
