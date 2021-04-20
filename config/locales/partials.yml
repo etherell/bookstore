@@ -5,8 +5,8 @@ en:
       shop: Shop
       orders: Orders
       settings: Settings
-      number: (555)-555-5555
       email: support@bookstore.com
+      phone: (555)-555-5555
 
     header:
       bookstore: Bookstore
