@@ -1,6 +1,7 @@
 %head
-  %meta{ charset: 'UTF-8' }
-  %meta{ name: 'viewport', content: 'width=device-width' }
+  %meta{charset: "UTF-8"}
+  %meta{name: "viewport", content: "width=device-width"}
+  = Gon::Base.render_data
   %title Bookstore
 
   = csrf_meta_tags
