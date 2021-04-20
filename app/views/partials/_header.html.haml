@@ -1,30 +1,28 @@
 %header.navbar.navbar-default
   .container
     .navbar-header
-      %button.navbar-toggle.pull-left{ type: 'button', 'data-toggle': 'collapse',
-                                       'data-target': '#navbar' }
+      %button.navbar-toggle.pull-left{type: "button", 'data-toggle': "collapse", 'data-target': "#navbar"}
         %span.sr-only
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
       = link_to t('.bookstore'), root_path, class: 'navbar-brand'
-      %a.shop-link.pull-right.visible-xs{ href: '#' }
+      %a.shop-link.pull-right.visible-xs{href: "#"}
         %span.shop-icon
           %span.shop-quantity 3
-    %a.shop-link.pull-right.hidden-xs{ href: '#' }
+    %a.shop-link.pull-right.hidden-xs{href: "#"}
       %span.shop-icon
         %span.shop-quantity 3
-    .navbar-collapse.collapse.pl-30#navbar{ 'aria-expanded': 'false' }
+    #navbar.navbar-collapse.collapse.pl-30{'aria-expanded': "false"}
       .visible-xs
-        %button.close{ type: 'button', 'aria-label': 'Close' }
-          %span{ 'aria-hidden': 'true' } &times;
+        %button.close{type: "button", 'aria-label': "Close"}
+          %span{'aria-hidden': "true"} &times;
         %ul.nav.navbar-nav
           %li
             = link_to t('.home'), root_path, class: 'home-link'
           %li
-            = link_to(t('.shop'), '#menu', type: 'button', 'data-toggle': 'collapse',
-                      'aria-expanded': 'false', 'aria-controls': 'menu', class: 'shop-header-link')
-            %ul.collapse.list-unstyled.pl-30.mb-10#menu{ 'aria-expanded': 'false' }
+            %a{type: "button", 'data-toggle': "collapse", href: "#menu", 'aria-expanded': "false", 'aria-controls': "menu", class: 'shop-header-link'}= t('.shop')
+            %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
               - categories.each do |category|
                 %li
                   = link_to category.title, books_path(category_id: category.id), class: 'collapse-link'
@@ -36,15 +34,13 @@
               = link_to 'Log in', new_user_session_path, class: 'my-account-link'
           - if current_user
             %li
-              = link_to t('.my_account'), '#', class: 'my-account-link'
+              %a{href: "#", class: 'my-account-link'}= t('.my_account')
       .hidden-xs
         %ul.nav.navbar-nav
           %li
             = link_to t('.home'), root_path, class: 'home-link'
           %li.dropdown
-            = link_to(t('.shop'), '#', 'data-toggle': 'dropdown', role: 'button',
-                      'aria-haspopup': 'true', 'aria-expanded': 'false',
-                      class: 'dropdown-toggle shop-header-link')
+            %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false", class: 'shop-header-link'}= t('.shop')
             %ul.dropdown-menu
               - categories.each do |category|
                 %li
@@ -54,8 +50,8 @@
               = link_to t('.log_out'), destroy_user_session_path, method: 'delete', class: 'log-out-link'
           - else
             %li
-              = link_to 'Log in', new_user_session_path, class: 'my-account-link log-in-link'
+              = link_to 'Log in', new_user_session_path, class: 'my-account-link', class: 'log-in-link'
           - if current_user
             %li
-              = link_to t('.my_account'), '#', class: 'my-account-link'
+              %a{href: "#", class: 'my-account-link'}= t('.my_account')
 
