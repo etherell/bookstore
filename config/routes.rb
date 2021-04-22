@@ -5,5 +5,4 @@ Rails.application.routes.draw do
                      path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
   root to: 'pages#index'
   resources :books, only: %i[index show]
-  resources :homes, only: :new
 end
