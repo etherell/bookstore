@@ -1,7 +1,7 @@
 .book-container.col-xs-6.col-sm-3
   .general-thumb-wrap
     .thumbnail.general-thumbnail
-      = image_tag book.available_image, class: 'img-shadow general-thumbnail-img', alt: 'design-book'
+      = image_pack_tag book.available_image, class: 'img-shadow general-thumbnail-img', alt: 'design-book'
       .thumb-hover
         .general-thumb-link-wrap
           = link_to book_path(book), class: 'thumb-hover-link show-link' do

@@ -1,23 +1,32 @@
 # frozen_string_literal: true
 
-class BookDecorator < Draper::Decorator
+class BookDecorator < ApplicationDecorator
   delegate_all
-  PLACEHOLDER_PATH = 'http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg'
+  decorates_association :authors
+  PLACEHOLDER_PATH = 'book.jpg'
+  MAX_TITLE_LENGTH = 27
+  MAX_DESCRIPTION_LENGTH = 250
+
+  def self.collection_decorator_class
+    PaginatingDecorator
+  end
 
   def available_image
-    image.attached? ? image : PLACEHOLDER_PATH
+    images.attached? ? images : PLACEHOLDER_PATH
   end
 
   def authors_names
-    authors.present? ? authors.pluck(:name).join(', ') : ''
+    authors.map(&:full_name).join(', ')
   end
 
   def short_title
-    title.truncate(27, separator: /\s/)
+    title.truncate(MAX_TITLE_LENGTH)
   end
 
   def short_description
-    description.truncate(250, separator: /\s/)
+    return tag.p(description) if description.length < MAX_DESCRIPTION_LENGTH
+
+    short_description_with_button
   end
 
   def dimensions?
@@ -25,10 +34,17 @@ class BookDecorator < Draper::Decorator
   end
 
   def dimensions
-    "H: #{height} x W: #{width} x D: #{depth} inches"
+    I18n.t('books.show.dimensions', height: height, width: width, depth: depth)
   end
 
   def meterials_names
     materials.present? ? materials.pluck(:name).map(&:capitalize).join(', ') : ''
+  end
+
+  private
+
+  def short_description_with_button
+    tag.p(description.truncate(MAX_DESCRIPTION_LENGTH)) +
+      link_to(I18n.t('books.show.read_more'), '', class: 'read-more in-gold-500 ml-10')
   end
 end

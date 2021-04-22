@@ -24,9 +24,16 @@ module Bookstore
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # Prevents assets generation
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
+
     # RSpec config
     config.generators do |g|
-      g.test_framework :rspec, request_specs: false, helper_specs: false, controller_specs: true
+      g.test_framework :rspec, request_specs: false, helper_specs: false, controller_specs: true, feature_specs: true
     end
+
+    # Changes factory bot path
+    # config.factory_bot.definition_file_paths = ["spec/support/factories"]
   end
 end

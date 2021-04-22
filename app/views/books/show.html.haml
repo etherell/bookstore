@@ -31,12 +31,8 @@
           %button.btn.btn-default.pull-right.general-position.cart-btn= t('.add_to_cart')
       .general-info-wrap.divider-lg
         %p= t('.description')
-        %p.lead.small.line-height-2.description-value
-          - if @book.description.length > 250
-            = @book.short_description
-            = link_to t('.read_more'), '', class: "read-more in-gold-500 ml-10"
-          - else
-            = @book.description
+        %div.lead.small.line-height-2.description-value
+          = @book.short_description
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('.publication_year')
@@ -44,7 +40,7 @@
       - if @book.dimensions?
         .general-info-wrap.divider-lg
           .clearfix
-            %p.pull-left= t('.dimensions')
+            %p.pull-left= t('.dimensions_title')
             %p.lead.small.pull-right.dimesions-value= @book.dimensions
       - if @book.materials.any?
         .general-info-wrap.divider-lg

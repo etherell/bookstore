@@ -1,57 +1,69 @@
 class PriceCalculator {
-  constructor(quantityInputClass, incrementButtonClass, decrementButtonClass, bookPriceClass) {
-    this.quantityInput = $(quantityInputClass);
-    this.incrementButton = $(incrementButtonClass);
-    this.decrementButton = $(decrementButtonClass);
-    this.bookPrice = $(bookPriceClass)
-    this.basePrice = parseFloat(this.bookPrice.text().replace('€', '')).toFixed(2)
+  constructor(currency, booksQuantity) {
+    this.quantityInput = $(".quantity-input");
+    this.incrementButton = $(".fa-plus");
+    this.decrementButton = $(".fa-minus");
+    this.bookPrice = $(".book-price");
+    this.currency = currency;
+    this.basePrice = this.calculateBasePrice();
+    this.booksQuantity = booksQuantity;
   }
 
   init() {
-    this.decrementClick();
-    this.incrementClick();
-    this.inputNumber();
+    this.onDecrementClick();
+    this.onIncrementClick();
+    this.onNumberInput();
   }
 
-  decrementClick() {
+  calculateBasePrice() {
+    return parseFloat(this.bookPrice.text().replace(this.currency, "")).toFixed(
+      2
+    );
+  }
+
+  onDecrementClick() {
     this.decrementButton.click(() => {
       let inputValue = Number(this.quantityInput.val());
       if (inputValue > 1) {
         let newVal = inputValue - 1;
         this.quantityInput.val(newVal);
-        this.changePrice()
+        this.changePrice();
       }
     });
   }
 
-  incrementClick() {
+  onIncrementClick() {
     this.incrementButton.click(() => {
-      let inputValue = Number(this.quantityInput.val());
-      if (inputValue >= 1) {
-        let newVal = inputValue + 1;
-        this.quantityInput.val(newVal);
-      } else {
-        this.quantityInput.val(1);
-      }
-      this.changePrice()
+      this.checkQuanity();
+      this.changePrice();
     });
   }
 
-  inputNumber() {
+  onNumberInput() {
     this.quantityInput.on("input", () => {
-      this.changePrice()
-    })
+      this.checkQuanity();
+      this.changePrice();
+    });
+  }
+
+  checkQuanity() {
+    let inputValue = Number(this.quantityInput.val());
+    if (inputValue >= 1 && inputValue < this.booksQuantity) {
+      let newVal = inputValue + 1;
+      this.quantityInput.val(newVal);
+    } else if (inputValue < 1) {
+      this.quantityInput.val(1);
+    } else {
+      this.quantityInput.val(this.booksQuantity);
+    }
   }
 
   changePrice() {
     let inputValue = Number(this.quantityInput.val());
-    if (inputValue >= 1) {
-      price = (inputValue * this.basePrice).toFixed(2)
-    } else {
-      price = this.basePrice
-    }
-    this.bookPrice.text('€' + price)
+    let price = (inputValue * this.basePrice).toFixed(2);
+
+    this.bookPrice.text(`${this.currency}${price}`);
   }
 }
 
-new PriceCalculator(".quantity-input", ".fa-plus", ".fa-minus", ".book-price").init();
+new PriceCalculator(gon.currency, gon.quantity).init();

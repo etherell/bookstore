@@ -6,7 +6,7 @@ module Pages
       set_url '/books{/id}'
 
       section :book, '.book-container' do
-        element :title, '.title-value'
+        element :section_title, '.title-value'
         element :authors, '.authors-value'
         element :price, '.price-value'
         element :description, '.description-value'

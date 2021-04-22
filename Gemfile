@@ -14,7 +14,6 @@ gem 'money-rails', '~> 1.14'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
-gem 'rails-i18n', '~> 6.0'
 gem 'require_all', '~> 3.0'
 gem 'will_paginate', '~> 3.3'
 # gem 'redis', '~> 4.0'
@@ -28,6 +27,7 @@ gem 'omniauth-facebook', '~> 8.0'
 gem 'pundit', '~> 2.1'
 
 # frontend
+gem 'gon', '~> 6.4'
 gem 'haml', '~> 5.2', '>= 5.2.1'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
@@ -35,6 +35,7 @@ gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   # debugging and testing
+  gem 'factory_bot_rails', '~> 6.1'
   gem 'pry-byebug', '~> 3.9'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'simplecov', '~> 0.21.2', require: false
@@ -43,8 +44,8 @@ group :development, :test do
   gem 'brakeman', '~> 5.0', require: false
   gem 'bundler-audit', '~> 0.8.0', require: false
   gem 'database_consistency', '~> 0.8.13', require: false
-  gem 'faker', '~> 2.17'
   gem 'fasterer', '~> 0.9.0', require: false
+  gem 'ffaker', '~> 2.18'
   gem 'overcommit', '~> 0.57.0'
   gem 'rails_best_practices', '~> 1.20', require: false
   gem 'rubocop-performance', '~> 1.10', '>= 1.10.2', require: false
@@ -63,7 +64,6 @@ end
 group :test do
   gem 'capybara', '~> 3.35', '>= 3.35.3'
   gem 'capybara-screenshot', '~> 1.0', '>= 1.0.25'
-  gem 'factory_bot', '~> 6.1'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'

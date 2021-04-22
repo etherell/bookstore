@@ -1,6 +1,6 @@
 %main.container
   %h1.general-title-margin= t('.title')
-  = render 'menu', categories: @categories
+  = render 'menu', categories: @categories, books_count: @books_count
   .mb-120
     = render 'books', books: @books
 

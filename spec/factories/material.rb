@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :material do
-    name { Faker::Commerce.material }
+    name { FFaker::Lorem.word }
   end
 end

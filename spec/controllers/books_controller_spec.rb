@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.describe BooksController, type: :controller do
+RSpec.describe BooksController do
   describe '#index' do
+    before { stub_const('Book::PER_PAGE', 3) }
+
     context 'when success request' do
       before { get :index }
 
@@ -22,12 +24,10 @@ RSpec.describe BooksController, type: :controller do
     end
 
     context 'with books' do
-      let(:books) { create_list(:book_with_authors_and_materials, 8) }
+      let(:books) { create_list(:book, Book::PER_PAGE) }
       let(:category) { create(:category) }
-      let(:additional_books_length) { 3 }
-      let(:category_books) do
-        create_list(:book_with_authors_and_materials, additional_books_length, category: category)
-      end
+      let(:additional_books_length) { 2 }
+      let(:category_books) { create_list(:book, additional_books_length, category: category) }
 
       before { books }
 
@@ -51,7 +51,7 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe '#show' do
-    let(:book) { create(:book_with_authors_and_materials) }
+    let(:book) { create(:book, :with_materials) }
 
     context 'when success request' do
       before { get :show, params: { id: book.id } }
@@ -78,11 +78,17 @@ RSpec.describe BooksController, type: :controller do
 
       let(:random_number) { rand(0..100) }
 
-      it 'returns successful status' do
-        expect { show_request }.to raise_error(ActiveRecord::RecordNotFound)
+      it 'redirects to index page' do
+        expect(show_request).to redirect_to(action: :index)
       end
 
-      it 'returns a valid book' do
+      it 'returns error flash' do
+        show_request
+        expect(flash[:error]).to eq(I18n.t('books.errors.record_not_found'))
+      end
+
+      it 'returns no books' do
+        show_request
         expect(assigns(:book)).to be_nil
       end
     end

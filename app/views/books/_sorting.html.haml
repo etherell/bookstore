@@ -2,11 +2,6 @@
   = t(".#{params[:sorting] || 'newest'}")
   %i.fa.fa-angle-down.dropdown-icon.pull-right
 %ul.dropdown-menu.sorting-menu
-  %li
-    = link_to t('.newest'), request.params.merge(sorting: Books::SortingQuery::NEWEST)
-  %li
-    = link_to t('.popular'), request.params.merge(sorting: Books::SortingQuery::POPULAR)
-  %li
-    = link_to t('.low_price'), request.params.merge(sorting: Books::SortingQuery::LOW_PRICE)
-  %li
-    = link_to t('.high_price'), request.params.merge(sorting: Books::SortingQuery::HIGH_PRICE)
+  - books_sorting_options.each do |sorting_option|
+    %li
+      = link_to t(".#{sorting_option}"), request.params.merge(sorting: sorting_option)

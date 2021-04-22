@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_095255) do
+ActiveRecord::Schema.define(version: 2021_04_26_191758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,57 +36,64 @@ ActiveRecord::Schema.define(version: 2021_04_15_095255) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "author_books", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_author_books_on_author_id"
+    t.index ["book_id"], name: "index_author_books_on_book_id"
+  end
+
   create_table "authors", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "first_name", limit: 50, null: false
+    t.string "last_name", limit: 50, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "authors_books", force: :cascade do |t|
-    t.bigint "author_id", null: false
+  create_table "book_materials", force: :cascade do |t|
+    t.bigint "material_id", null: false
     t.bigint "book_id", null: false
-    t.index ["author_id"], name: "index_authors_books_on_author_id"
-    t.index ["book_id"], name: "index_authors_books_on_book_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_materials_on_book_id"
+    t.index ["material_id"], name: "index_book_materials_on_material_id"
   end
 
   create_table "books", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title", limit: 50, null: false
     t.text "description"
     t.bigint "category_id", null: false
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "EUR", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.integer "publication_year"
     t.float "height"
     t.float "width"
     t.float "depth"
+    t.integer "quantity", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
-  create_table "books_materials", force: :cascade do |t|
-    t.bigint "book_id", null: false
-    t.bigint "material_id", null: false
-    t.index ["book_id"], name: "index_books_materials_on_book_id"
-    t.index ["material_id"], name: "index_books_materials_on_material_id"
-  end
-
   create_table "categories", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title", limit: 50, null: false
+    t.integer "books_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "materials", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", limit: 50, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "authors_books", "authors"
-  add_foreign_key "authors_books", "books"
+  add_foreign_key "author_books", "authors"
+  add_foreign_key "author_books", "books"
+  add_foreign_key "book_materials", "books"
+  add_foreign_key "book_materials", "materials"
   add_foreign_key "books", "categories"
-  add_foreign_key "books_materials", "books"
-  add_foreign_key "books_materials", "materials"
 end

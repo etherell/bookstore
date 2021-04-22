@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Category, type: :model do
+RSpec.describe Category do
   describe 'associations' do
-    it { is_expected.to have_many(:books).class_name('Book') }
+    it { is_expected.to have_many(:books) }
   end
 
   describe 'validations' do
