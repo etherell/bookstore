@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import toastr from 'toastr/toastr';
 require("@rails/ujs").start()
 global.Rails = Rails;
+global.toastr = require("toastr")
 
 window.toastr = toastr;
 window.$ = $;
