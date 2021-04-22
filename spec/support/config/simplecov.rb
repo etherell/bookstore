@@ -7,4 +7,4 @@ SimpleCov.start 'rails' do
   add_filter '/jobs/'
 end
 
-SimpleCov.minimum_coverage 80
+SimpleCov.minimum_coverage 95

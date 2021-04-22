@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-RSpec.describe BooksHelper, type: :helper do
+RSpec.describe BooksHelper do
   describe '#category_filter_placeholder' do
-    let(:placeholder) { helper.category_filter_placeholder(params, categories) }
-    let(:categories) { Category.all }
+    let(:placeholder) { helper.category_filter_placeholder(params) }
+    let(:categories) { create_list(:category, 5) }
 
-    before { create_list(:category, 5) }
+    before { categories }
 
     context 'with categories and wrong params' do
-      let(:params) { { category_id: 'random' } }
+      let(:params) { { category_id: 'wrong_category' } }
 
       it 'returns title of the first category' do
         expect(placeholder).to eq(categories.first.title)
@@ -20,7 +18,7 @@ RSpec.describe BooksHelper, type: :helper do
     context 'with categories and valid params' do
       let(:params) { { category_id: categories.last.id } }
 
-      it 'returns title of the first category' do
+      it 'returns title of the last category' do
         expect(placeholder).to eq(categories.last.title)
       end
     end

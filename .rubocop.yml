@@ -26,14 +26,12 @@ Style/Documentation:
 Rails/FilePath:
   Enabled: false
 
-Rails/HasAndBelongsToMany:
-  Enabled: false
-
 Lint/MissingSuper:
   Enabled: false
 
 Style/ArgumentsForwarding:
-  Enabled: false
+  Exclude:
+    - 'app/services/concerns/callable.rb'
 
 Layout/LineLength:
   Max: 120

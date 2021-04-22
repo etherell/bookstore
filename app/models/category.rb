@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Category < ApplicationRecord
-  has_many :books, dependent: :nullify
+  MAX_NAME_LENGTH = 50
 
-  validates :title, presence: true
+  has_many :books, dependent: :destroy
+
+  validates :title, presence: true, length: { maximum: MAX_NAME_LENGTH }
 end

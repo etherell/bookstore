@@ -4,27 +4,21 @@
       .col-sm-9
         %ul.list-inline.general-align.mb-25
           %li
-            %a.nav-link{href: "#", class: 'home-link'}= t('.home')
+            = link_to t('.home'), root_path, class: 'nav-link home-link'
           %li
-            %a.nav-link{href: "#", class: 'shop-footer-link'}= t('.shop')
+            = link_to t('.shop'), books_path, class: 'nav-link shop-link'
           %li
-            %a.nav-link{href: "#", class: 'orders-link'}= t('.orders')
+            = link_to t('.orders'), '#', class: 'nav-link orders-link'
           %li
-            %a.nav-link{href: "#", class: 'settings-link'}= t('.settings')
+            = link_to t('.settings'), '#', class: 'nav-link settings-link'
 
       .col-sm-3
-        %p.general-nav-mail support@bookstore.com
-        %p.general-nav-number (555)-555-5555
+        %p.general-nav-mail= t('.email')
+        %p.general-nav-number= t('.number')
         %ul.list-inline.general-align
           %li
-            %a.nav-link{href: "#"}
+            = link_to 'https://www.facebook.com/konstantin.stryapkin', class: 'nav-link' do
               %i.fa.fa-facebook{'aria-hidden': "true"}
           %li
-            %a.nav-link{href: "#"}
-              %i.fa.fa-twitter{'aria-hidden': "true"}
-          %li
-            %a.nav-link{href: "#"}
-              %i.fa.fa-google-plus{'aria-hidden': "true"}
-          %li
-            %a.nav-link{href: "#"}
+            = link_to 'https://www.instagram.com/stryapkin_kos/', class: 'nav-link' do
               %i.fa.fa-instagram{'aria-hidden': "true"}

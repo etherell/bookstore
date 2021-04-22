@@ -2,18 +2,19 @@
 
 FactoryBot.define do
   factory :book do
-    title { Faker::Book.title }
-    description { Faker::Lorem.paragraph(sentence_count: 25) }
+    title { FFaker::Lorem.word.capitalize }
+    description { FFaker::Lorem.paragraphs }
     price_cents { rand(500...10_000) }
     publication_year { rand(1990..2020) }
     height { rand(5.0..10.0).round(1) }
     width { rand(0.5..1.0).round(1) }
     depth { rand(4.0..7.0).round(1) }
-    category { create(:category) }
+    category
+    authors { create_list(:author, 3) }
+    quantity { rand(2..10) }
 
-    factory :book_with_authors_and_materials do
+    trait :with_materials do
       materials { create_list(:material, 3) }
-      authors { create_list(:author, 3) }
     end
   end
 end

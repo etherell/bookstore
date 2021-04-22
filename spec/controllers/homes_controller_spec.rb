@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe HomesController, type: :controller do
+RSpec.describe HomesController do
   describe '#index' do
     context 'when success request' do
       before { get :index }

@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def find_categories
-    @categories = Category.all
+    @categories = Category.all.includes([:books])
   end
 end

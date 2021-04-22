@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'support/config/simplecov'
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'

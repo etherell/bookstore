@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class Material < ApplicationRecord
-  has_and_belongs_to_many :books
+  MAX_NAME_LENGTH = 50
 
-  validates :name, presence: true
+  has_many :book_materials, dependent: :destroy
+  has_many :books, through: :book_materials
+
+  validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }
 end
