@@ -1,0 +1,30 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+    on_fail: fail
+
+  Fasterer:
+    enabled: true
+    on_fail: fail
+
+  BundleAudit:
+    enabled: true
+    on_fail: fail
+
+  RailsBestPractices:
+    enabled: true
+    on_fail: fail
+
+  DatabaseConsistency:
+    enabled: true
+    quiet: false
+    command: ['bundle', 'exec', 'database_consistency']
+
+PrePush:
+  Brakeman:
+    enabled: true
+    on_fail: fail
+
+  RSpec:
+    enabled: true
+    on_fail: fail
