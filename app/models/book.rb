@@ -2,7 +2,7 @@
 
 class Book < ApplicationRecord
   MAX_TITLE_LENGTH = 50
-  PER_PAGE = 8
+  PER_PAGE = 12
 
   belongs_to :category, counter_cache: true
   has_many :author_books, dependent: :destroy
