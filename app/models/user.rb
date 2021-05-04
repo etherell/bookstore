@@ -3,14 +3,15 @@
 class User < ApplicationRecord
   PASSWORD_FORMAT = /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]*\z/.freeze
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,
          omniauth_providers: [:facebook]
 
-  validates :email, :password, presence: true
+  validates :email, presence: true
   validates :password, format: { with: PASSWORD_FORMAT, message: I18n.t('errors.messages.password_complexity') }
+
+  has_one :billing_address, dependent: :destroy
+  has_one :shipping_address, dependent: :destroy
 
   after_create :send_welcome_email
 

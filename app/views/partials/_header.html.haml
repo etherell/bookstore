@@ -28,13 +28,14 @@
                   = link_to category.title, books_path(category_id: category.id), class: 'collapse-link'
           - if current_user
             %li
+              = link_to t('.settings'), new_address_path, class: 'settings-link'
+            %li
               = link_to t('.log_out'), destroy_user_session_path, method: 'delete', class: 'log-out-link'
           - else
             %li
-              = link_to 'Log in', new_user_session_path, class: 'my-account-link'
-          - if current_user
+              = link_to t('.log_in'), new_user_session_path, class: 'my-account-link'
             %li
-              %a{href: "#", class: 'my-account-link'}= t('.my_account')
+              = link_to t('.sign_up'), new_user_registration_path, class: 'sign-up-link'
       .hidden-xs
         %ul.nav.navbar-nav
           %li
@@ -45,13 +46,16 @@
               - categories.each do |category|
                 %li
                   = link_to category.title, books_path(category_id: category.id), class: 'collapse-link'
+          - unless current_user
+            %li
+              = link_to t('.log_in'), new_user_session_path, class: 'log-in-link'
+            %li
+              = link_to t('.sign_up'), new_user_registration_path, class: 'sign-up-link'
           - if current_user
-            %li
-              = link_to t('.log_out'), destroy_user_session_path, method: 'delete', class: 'log-out-link'
-          - else
-            %li
-              = link_to 'Log in', new_user_session_path, class: 'my-account-link', class: 'log-in-link'
-          - if current_user
-            %li
-              %a{href: "#", class: 'my-account-link'}= t('.my_account')
-
+            %li.dropdown
+              %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false", class: 'my-account-link'}= t('.my_account')
+              %ul.dropdown-menu
+                %li
+                  = link_to t('.settings'), new_address_path, class: 'collapse-link settings-link'
+                %li
+                  = link_to t('.log_out'), destroy_user_session_path, method: 'delete', class: 'collapse-link log-out-link'

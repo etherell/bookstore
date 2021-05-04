@@ -49,3 +49,4 @@ Metrics/BlockLength:
 LexicallyScopedActionFilter:
   Exclude:
     - 'app/controllers/application_controller.rb'
+    - 'app/controllers/users/registrations_controller.rb'

@@ -60,6 +60,19 @@ en:
         sign_up: Sign Up
         log_in: Log in
 
+      edit:
+        email_title: Email
+        email_placeholder: Enter Email
+        password_title: Password
+        old_password: Old password
+        new_password: New password
+        confirm_password: Confirm password
+        save: Save
+        remove_account: Remove account
+        remove_account_button: Please Remove My Account
+        remove_confirmation: I understand that all data will be lost
+
+      email_updated: "Email successfully updated"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
