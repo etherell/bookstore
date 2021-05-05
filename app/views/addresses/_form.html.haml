@@ -1,5 +1,5 @@
 .form
-  = simple_form_for form_object, url: addresses_path, html: { class: 'billing-form', method: :post } do |f|
+  = simple_form_for form_object, url: addresses_path, html: { method: :post } do |f|
     .form-group
       = f.label :first_name, t('.first_name'), class: 'control-label input-label first-name-label'
       = f.input_field :first_name, id: 'firstName', class: 'form-control', placeholder: t('.first_name')
@@ -23,7 +23,7 @@
       = f.full_error :zip, class: 'text-danger'
     .form-group
       = f.label :country_code, t('.country'), class: 'control-label input-label country-label'
-      = f.input_field :country_code, as: :country, id: 'country', class: 'form-control', placeholder: t('.country_placeholder')
+      = f.input_field :country_code, as: :country, id: 'country', class: 'form-control', include_blank: t('.country_placeholder')
       = f.full_error :country_code, class: 'text-danger'
     .form-group.mb-60
       = f.label :phone, t('.phone'), class: 'control-label input-label phone-label'
@@ -32,4 +32,4 @@
       = f.hidden_field :user_id, value: current_user.id
       = f.hidden_field :type, value: form_object.type
     .text-center.general-text-align
-      = f.submit t('.save'), class: 'btn'
+      = f.submit t('.save'), class: 'btn submit-btn'

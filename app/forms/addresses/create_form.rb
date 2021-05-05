@@ -3,7 +3,7 @@
 module Addresses
   class CreateForm < Reform::Form
     MAX_INFORMATION_LENGTH = 50
-    ZIP_MAX_LENGTH = 10
+    MAX_ZIP_LENGTH = 10
     PHONE_MAX_LENGTH = 15
     INFORMATION_FORMAT = /\A[A-Za-z ]+\z/.freeze
     ADDRESS_FORMAT = /\A[A-Za-z0-9,\-. ]+\z/.freeze
@@ -20,9 +20,11 @@ module Addresses
     property :type
     property :user_id
 
+    validates :user_id, :type, :first_name, :last_name, presence: true
+    validates :address, :city, :country_code, :zip, :phone, presence: true
     validates :first_name, :last_name, length: { maximum: MAX_INFORMATION_LENGTH }
     validates :address, :city, :country_code, length: { maximum: MAX_INFORMATION_LENGTH }
-    validates :zip, length: { maximum: ZIP_MAX_LENGTH }
+    validates :zip, length: { maximum: MAX_ZIP_LENGTH }
     validates :phone, length: { maximum: PHONE_MAX_LENGTH }
     validates :first_name, :last_name, format: { with: INFORMATION_FORMAT, message: 'allows only letters' }
     validates :city, :country_code, format: { with: INFORMATION_FORMAT, message: 'allows only letters' }
@@ -30,10 +32,5 @@ module Addresses
               format: { with: ADDRESS_FORMAT, message: 'allows only letters, numbers, hyphens, commas, spaces' }
     validates :zip, format: { with: ZIP_FORMAT, message: 'allows only numbers and hyphens' }
     validates :phone, format: { with: PHONE_FORMAT, message: 'should start with plus and contain only numbers' }
-    validates :user_id, presence: true
-
-    private
-
-    def validate_pho; end
   end
 end

@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :addresses, only: %i[new create]
 
   devise_scope :user do
-    put 'update_email', to: 'users/registrations#update_email'
+    put 'update_email' => 'users/registrations#update_email'
   end
 end

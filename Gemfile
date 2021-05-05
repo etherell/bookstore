@@ -62,8 +62,10 @@ end
 
 group :development do
   gem 'bullet', '~> 6.1', '>= 6.1.4'
+  gem 'httplog', '~> 1.4', '>= 1.4.3'
   gem 'letter_opener', '~> 1.7'
   gem 'listen', '~> 3.2'
+  gem 'rubycritic', '~> 4.6', '>= 4.6.1', require: false
   gem 'spring', '~> 2.1', '>= 2.1.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'

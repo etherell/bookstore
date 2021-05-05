@@ -24,6 +24,11 @@ PreCommit:
     quiet: false
     command: ['bundle', 'exec', 'database_consistency']
 
+  RubyCtiric:
+    enabled: true
+    quiet: false
+    command: ['rubycritic']
+
 PrePush:
   Brakeman:
     enabled: true

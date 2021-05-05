@@ -10,8 +10,8 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, format: { with: PASSWORD_FORMAT, message: I18n.t('errors.messages.password_complexity') }
 
-  has_one :billing_address, dependent: :destroy
-  has_one :shipping_address, dependent: :destroy
+  has_many :billing_addresses, dependent: :destroy
+  has_many :shipping_addresses, dependent: :destroy
 
   after_create :send_welcome_email
 

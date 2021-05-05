@@ -12,7 +12,7 @@ class AddressesController < ApplicationController
       flash[:success] = t('.success')
       redirect_to action: :new
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

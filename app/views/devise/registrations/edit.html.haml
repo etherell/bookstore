@@ -2,8 +2,8 @@
   = render 'partials/settings_menu'
   #privacy.tab-pane
     .row.mb-60
-      .col-sm-5
-        %p.in-gold-500.font-18.mb-25= t('.email_title')
+      .col-sm-5.email-form
+        %p.in-gold-500.font-18.mb-25.page-title= t('.email_title')
         = simple_form_for @update_email_form, url: update_email_path, html: { id: 'email-update', class: 'general-form-md', method: :put } do |f|
           .form-group.mb-35
             = f.label :email, t('.email_title'), class: 'control-label input-label email-label'
@@ -12,7 +12,7 @@
             = f.hidden_field :id, value: current_user.id
           .general-text-align
             = f.submit t('.save'), class: 'btn btn-default mb-35'
-      .col-sm-5.col-sm-offset-1
+      .col-sm-5.col-sm-offset-1.password-form
         %p.in-gold-500.font-18.mb-25= t('.password_title')
         = simple_form_for @user, url: user_registration_path, html: { id: 'password-update', class: 'general-form-md divider-lg-bottom pb-25', method: :put } do |f|
           .form-group.mb-30
@@ -29,7 +29,7 @@
             = f.full_error :password_confirmation, class: 'text-danger'
           .general-text-align
             = f.submit t('.save'), class: 'btn-default btn mb-10'
-      .col-sm-12
+      .col-sm-12.remove-account-form
         %p.in-gold-500.font-18.mb-25= t('.remove_account')
         .general-settings-btn
           = button_to t('.remove_account_button'), user_registration_path, method: 'delete', class: 'remove-account-btn btn mb-20 mt-10', disabled: true

@@ -12,7 +12,7 @@ module Users
         flash[:success] = I18n.t('devise.registrations.email_updated')
         redirect_to edit_user_registration_path
       else
-        render :edit
+        render :edit, status: :unprocessable_entity
       end
     end
 

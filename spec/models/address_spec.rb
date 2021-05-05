@@ -5,7 +5,12 @@ RSpec.describe Address do
     it { is_expected.to belong_to(:user) }
   end
 
-  # describe '#country_name' do
-  #   let(:address) { create(:address) }
-  # end
+  describe '#country_name' do
+    let(:address) { create(:address, country_code: 'US') }
+    let(:expected_result) { 'United States' }
+
+    it 'returns apropriate country name' do
+      expect(address.country_name).to eq(expected_result)
+    end
+  end
 end

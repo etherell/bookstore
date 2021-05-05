@@ -20,3 +20,8 @@ en:
       sign_up: Sign up
       log_out: Log out
       settings: Settings
+
+    settings_menu:
+      address: Address
+      privacy: Privacy
+      title: Settings
