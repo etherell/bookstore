@@ -6,7 +6,8 @@ class BooksController < ApplicationController
   before_action :count_books, only: :index
 
   def index
-    @books = Books::SortingAndFilteringQuery.call(params[:category_id], params[:sorting])
+    @books = policy_scope(Book)
+    @books = Books::SortingAndFilteringQuery.call(@books, params[:category_id], params[:sorting])
                                             .paginate(page: params[:page], per_page: Book::PER_PAGE)
                                             .includes(%i[images_attachments authors])
                                             .decorate
@@ -14,7 +15,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id]).decorate
-    set_params_for_calculator
+    authorize @book
+    set_params_for_js
   end
 
   private
@@ -25,11 +27,12 @@ class BooksController < ApplicationController
   end
 
   def count_books
-    @books_count = Book.count || 0
+    @books_count = policy_scope(Book).count || 0
   end
 
-  def set_params_for_calculator
+  def set_params_for_js
     gon.currency = I18n.t('books.show.currency')
     gon.quantity = @book.quantity
+    gon.description = @book.description
   end
 end

@@ -39,6 +39,9 @@ commands:
       - run:
           name: database consistency
           command: bundle exec database_consistency
+      - run:
+          name: haml lint
+          command: bundle exec haml-lint app/views/
 
   run_specs:
     steps:

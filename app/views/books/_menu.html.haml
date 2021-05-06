@@ -9,8 +9,9 @@
   - if categories.present?
     %p.lead.small.mb-10= t('.filter_title')
     .dropdown
-      %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-        = category_filter_placeholder(params)
+      %a.dropdown-toggle.lead.small{ href: '#', 'data-toggle': 'dropdown', role: 'button',
+                                     'aria-haspopup': 'true', 'aria-expanded': 'false' }
+        = category_filter_placeholder(categories, params)
         %i.fa.fa-angle-down.dropdown-icon.pull-right
       %ul.dropdown-menu
         = render 'categories_filter', categories: categories, books_count: books_count

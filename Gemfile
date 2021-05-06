@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby(File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip)
 
 gem 'aasm', '~> 5.1', '>= 5.1.1'
+gem 'actionpack', '~> 6.0.3.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'draper', '~> 4.0', '>= 4.0.1'
 gem 'jbuilder', '~> 2.7'
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'database_consistency', '~> 0.8.13', require: false
   gem 'fasterer', '~> 0.9.0', require: false
   gem 'ffaker', '~> 2.18'
+  gem 'haml_lint', '~> 0.37.0', require: false
   gem 'overcommit', '~> 0.57.0'
   gem 'rails_best_practices', '~> 1.20', require: false
   gem 'rubocop-performance', '~> 1.10', '>= 1.10.2', require: false
@@ -64,6 +66,7 @@ end
 group :test do
   gem 'capybara', '~> 3.35', '>= 3.35.3'
   gem 'capybara-screenshot', '~> 1.0', '>= 1.0.25'
+  gem 'pundit-matchers', '~> 1.6.0'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'

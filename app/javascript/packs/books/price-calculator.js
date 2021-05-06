@@ -34,22 +34,22 @@ class PriceCalculator {
 
   onIncrementClick() {
     this.incrementButton.click(() => {
-      this.checkQuanity();
+      this.changeQuanity(1);
       this.changePrice();
     });
   }
 
   onNumberInput() {
     this.quantityInput.on("input", () => {
-      this.checkQuanity();
+      this.changeQuanity(0);
       this.changePrice();
     });
   }
 
-  checkQuanity() {
+  changeQuanity(increment) {
     let inputValue = Number(this.quantityInput.val());
     if (inputValue >= 1 && inputValue < this.booksQuantity) {
-      let newVal = inputValue + 1;
+      let newVal = inputValue + increment;
       this.quantityInput.val(newVal);
     } else if (inputValue < 1) {
       this.quantityInput.val(1);

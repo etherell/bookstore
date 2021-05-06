@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pages
-  module Homes
+  module Pages
     class Index < SitePrism::Page
       set_url '/'
 
@@ -20,10 +20,10 @@ module Pages
         element :settings_link, 'a.settings-link', text: I18n.t('partials.footer.settings')
       end
 
-      element :welcome_message, '.text-center .welcome-text', text: I18n.t('homes.index.welcome')
-      element :description, '.text-center .description-text', text: I18n.t('homes.index.description')
-      element :get_started_button, '.text-center .get-started-btn', text: I18n.t('homes.index.get_started')
-      element :best_sellers, '.best-sellers-title', text: I18n.t('homes.index.best_sellers')
+      element :welcome_message, '.text-center .welcome-text', text: I18n.t('pages.index.welcome')
+      element :description, '.text-center .description-text', text: I18n.t('pages.index.description')
+      element :get_started_button, '.text-center .get-started-btn', text: I18n.t('pages.index.get_started')
+      element :best_sellers, '.best-sellers-title', text: I18n.t('pages.index.best_sellers')
     end
   end
 end

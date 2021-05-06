@@ -6,14 +6,14 @@
     .col-sm-6
       .product-gallery
         .mb-20
-          %img.img-responsive{src: "https://www.bramstein.com/static/smashing-@book-5-photo-stack.9d5d114e3e.jpg"}
+          %img.img-responsive{ src: 'https://www.bramstein.com/static/smashing-@book-5-photo-stack.9d5d114e3e.jpg' }
         .images.clearfix
-          %a.img-link{href: "#"}
-            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-@book-5-2-large.jpg"}
-          %a.img-link{href: "#"}
-            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-@book-5-2-large.jpg"}
-          %a.img-link{href: "#"}
-            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-@book-5-2-large.jpg"}
+          %a.img-link{ href: '#' }
+            %img{ src: 'https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-@book-5-2-large.jpg' }
+          %a.img-link{ href: '#' }
+            %img{ src: 'https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-@book-5-2-large.jpg' }
+          %a.img-link{ href: '#' }
+            %img{ src: 'https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-@book-5-2-large.jpg' }
     .col-sm-6
       %h1.mt-res-0.title-value= @book.title
       %p.lead.small.authors-value= @book.authors_names
@@ -22,16 +22,16 @@
           %p.h1.in-gold-500.mt-10.book-price.price-value= @book.price.format
         .col-xs-5.col-md-3
           .input-group.general-position
-            = content_tag(:a, remote: true, class: 'input-link minus-quantity') do
+            = link_to '#', remote: true, class: 'input-link minus-quantity' do
               %i.fa.fa-minus.line-height-40
-            %input.form-control.quantity-input{type: "text", value: 1}
-            = content_tag(:a,remote: true, class: 'input-link plus-quantity') do
+            %input.form-control.quantity-input{ type: 'text', value: 1 }
+            = link_to '#', remote: true, class: 'input-link plus-quantity' do
               %i.fa.fa-plus.line-height-40
         .col-xs-7.col-md-5
           %button.btn.btn-default.pull-right.general-position.cart-btn= t('.add_to_cart')
       .general-info-wrap.divider-lg
         %p= t('.description')
-        %div.lead.small.line-height-2.description-value
+        .lead.small.line-height-2.description-value
           = @book.short_description
       .general-info-wrap.divider-lg
         .clearfix
@@ -60,51 +60,16 @@
       .col-md-8
         .mb-40
           .form-group
-            %label.control-label.input-label.in-grey-600{for: "title"} Title
-            %input#title.form-control{name:"title", type: "text"}
+            %label.control-label.input-label.in-grey-600{ for: 'title' } Title
+            %input.form-control#title{ name: 'title', type: 'text' }
           .form-group
-            %label.control-label.input-label.in-grey-600{for: "review"} Review
-            %textarea#review.form-control{name:"review", type: "text"}
+            %label.control-label.input-label.in-grey-600{ for: 'review' } Review
+            %textarea.form-control#review{ name: 'review', type: 'text' }
         .text-right
           %button.btn.disabled.mb-20 Post
-  .mb-80
-    %h3.in-gold-500.mb-25 Reviews (3)
-    .general-message-wrap.divider-lg
-      .clearfix
-        %img.img-circle.logo-size.inlide-block.pull-left{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-@book-5-2-large.jpg"}
-        .ml-70
-          %div
-            .general-message-date.hidden-xs 11/11/16
-            .max-240
-              .general-message-verified Verified Reviewer
-              .general-message-name Rita J. Lewis
-          .mb-15
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-          %p Thank you @bookStore, I was very pleased to receive my order for the Moleskine diary so soon after placing the order.
-    .general-message-wrap.divider-lg
-      .clearfix
-        %span.img-circle.logo-size.inlide-block.pull-left.logo-empty M
-        .ml-70
-          %div
-            .general-message-date.hidden-xs 11/11/16
-            .max-240
-              .general-message-verified.pull-right Verified Reviewer
-              .general-message-name May J. Novoa
-          .mb-15
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star.rate-empty
-          %p If ‘Get a better job’ had landed on my desk a year ago, I might have been dismissive of it. Instead I was prepared to be open-minded. There have been many occasions where I turned to career @books with practical activities to look for some inspiration when developing education activities for learners or assessment.
+  = render 'reviews'
 
 = javascript_pack_tag 'books/price-calculator'
 = javascript_pack_tag 'books/more-shower'
 
-:javascript
-  new MoreShower('.read-more', '#{j @book.description}').show();
 

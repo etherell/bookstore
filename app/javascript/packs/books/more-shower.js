@@ -1,15 +1,15 @@
 class MoreShower {
   constructor(readMoreButtonClass, description) {
     this.readMoreButton = $(readMoreButtonClass);
-    this.description = description
+    this.description = description;
   }
 
-  show() {
+  init() {
     this.readMoreButton.click((event) => {
-      event.preventDefault()
-      this.readMoreButton.parent().html(this.description)
-    })
+      event.preventDefault();
+      this.readMoreButton.parent().html(this.description);
+    });
   }
 }
 
-window.MoreShower = MoreShower
+new MoreShower(".read-more", gon.description).init();

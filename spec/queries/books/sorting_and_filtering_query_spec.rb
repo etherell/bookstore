@@ -4,7 +4,7 @@ RSpec.describe Books::SortingAndFilteringQuery do
   before { create_list(:book, 20) }
 
   let(:books) { Book.all }
-  let(:sorted_books) { described_class.new(nil, order).call }
+  let(:sorted_books) { described_class.new(books, nil, order).call }
 
   describe '#call' do
     context 'when newest first' do

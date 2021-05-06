@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 module BooksHelper
-  def category_filter_placeholder(params)
-    Category.find(params[:category_id]).title
-  rescue ActiveRecord::RecordNotFound
-    Category.first.title
+  def category_filter_placeholder(categories, params)
+    category = categories.find_by(id: params[:category_id]) || categories.first
+    category.title
   end
 
   def back_to_results_link(request_referer)
