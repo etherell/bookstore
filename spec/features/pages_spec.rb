@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Homes' do
+RSpec.describe 'Pages' do
   describe '#index' do
-    let(:homes_index_page) { Pages::Homes::Index.new }
+    let(:pages_index_page) { Pages::Pages::Index.new }
 
-    before { homes_index_page.load }
+    before { pages_index_page.load }
 
     context 'when header elements present' do
-      let(:header) { homes_index_page.header }
+      let(:header) { pages_index_page.header }
 
       it { expect(header).to have_brand }
       it { expect(header).to have_home_link }
@@ -17,7 +17,7 @@ RSpec.describe 'Homes' do
     end
 
     context 'when footer elements present' do
-      let(:footer) { homes_index_page.footer }
+      let(:footer) { pages_index_page.footer }
 
       it { expect(footer).to have_home_link }
       it { expect(footer).to have_shop_link }
@@ -26,10 +26,10 @@ RSpec.describe 'Homes' do
     end
 
     context 'when page elements present' do
-      it { expect(homes_index_page).to have_welcome_message }
-      it { expect(homes_index_page).to have_description }
-      it { expect(homes_index_page).to have_get_started_button }
-      it { expect(homes_index_page).to have_best_sellers }
+      it { expect(pages_index_page).to have_welcome_message }
+      it { expect(pages_index_page).to have_description }
+      it { expect(pages_index_page).to have_get_started_button }
+      it { expect(pages_index_page).to have_best_sellers }
     end
   end
 end

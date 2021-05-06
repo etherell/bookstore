@@ -1,48 +1,55 @@
 %header.navbar.navbar-default
   .container
     .navbar-header
-      %button.navbar-toggle.pull-left{type: "button", 'data-toggle': "collapse", 'data-target': "#navbar"}
+      %button.navbar-toggle.pull-left{ type: 'button', 'data-toggle': 'collapse',
+                                       'data-target': '#navbar' }
         %span.sr-only
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand= t('.bookstore')
-      %a.shop-link.pull-right.visible-xs{href: "#"}
+      %a.shop-link.pull-right.visible-xs{ href: '#' }
         %span.shop-icon
           %span.shop-quantity 3
-    %a.shop-link.pull-right.hidden-xs{href: "#"}
+    %a.shop-link.pull-right.hidden-xs{ href: '#' }
       %span.shop-icon
         %span.shop-quantity 3
-    #navbar.navbar-collapse.collapse.pl-30{'aria-expanded': "false"}
+    .navbar-collapse.collapse.pl-30#navbar{ 'aria-expanded': 'false' }
       .visible-xs
-        %button.close{type: "button", 'aria-label': "Close"}
-          %span{'aria-hidden': "true"} &times;
+        %button.close{ type: 'button', 'aria-label': 'Close' }
+          %span{ 'aria-hidden': 'true' } &times;
         %ul.nav.navbar-nav
           %li
-            %a{href: "#", class: 'home-link'}= t('.home')
+            = link_to t('.home'), root_path, class: 'home-link'
           %li
-            %a{type: "button", 'data-toggle': "collapse", href: "#menu", 'aria-expanded': "false", 'aria-controls': "menu", class: 'shop-header-link'}= t('.shop')
-            %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
+            = link_to(t('.shop'), '#menu', type: 'button', 'data-toggle': 'collapse',
+                      'aria-expanded': 'false', 'aria-controls': 'menu', class: 'shop-header-link')
+            %ul.collapse.list-unstyled.pl-30.mb-10#menu{ 'aria-expanded': 'false' }
               - categories.each do |category|
                 %li
-                  = link_to category.title, books_path(category_id: category.id), class: 'collapse-link'
-              %li.divider{role: "separator"}
+                  = link_to(category.title, books_path(category_id: category.id),
+                            class: 'collapse-link')
+              %li.divider{ role: 'separator' }
               %li
-                %a{href: "#"}= t('shared.header.log_out')
+                %a{ href: '#' }= t('shared.header.log_out')
           %li
-            %a{href: "#", class: 'my-account-link'}= t('.my_account')
+            = link_to t('.my_account'), '#', class: 'my-account-link'
       .hidden-xs
         %ul.nav.navbar-nav
           %li
-            %a{href: "#", class: 'home-link'}= t('.home')
+            = link_to t('.home'), root_path, class: 'home-link'
           %li.dropdown
-            %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false", class: 'shop-header-link'}= t('.shop')
+            = link_to(t('.shop'), '#', 'data-toggle': 'dropdown', role: 'button',
+                      'aria-haspopup': 'true', 'aria-expanded': 'false',
+                      class: 'dropdown-toggle shop-header-link')
             %ul.dropdown-menu
               - categories.each do |category|
                 %li
-                  = link_to category.title, books_path(category_id: category.id), class: 'collapse-link'
-              %li.divider{role: "separator"}
+                  = link_to(category.title, books_path(category_id: category.id),
+                            class: 'collapse-link')
+              %li.divider{ role: 'separator' }
               %li
-                %a{href: "#", class: 'log-out-link'}= t('.log_out')
+                = link_to t('.log_out'), '#', class: 'log-out-link'
           %li
-            %a{href: "#", class: 'my-account-link'}= t('.my_account')
+            = link_to t('.my_account'), '#', class: 'my-account-link'
+

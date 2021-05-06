@@ -9,7 +9,8 @@ module Books
       popular: nil
     }.freeze
 
-    def initialize(category_id, sorting)
+    def initialize(books, category_id, sorting)
+      @books = books
       @category_id = category_id
       @sorting = sorting
     end
@@ -22,7 +23,7 @@ module Books
     private
 
     def filter_books
-      @books = @category_id ? Book.where(category_id: @category_id) : Book.all
+      @books = @category_id ? @books.where(category_id: @category_id) : @books
     end
 
     def order_books

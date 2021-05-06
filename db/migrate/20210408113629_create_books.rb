@@ -3,7 +3,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
     create_table :books do |t|
       t.string :title, null: false, limit: 50
       t.text :description
-      t.references :category, null: false, foreign_key: true
+      t.references :category, null: false, foreign_key: true, on_delete: :cascade
       t.monetize :price
       t.integer :publication_year
       t.float :height

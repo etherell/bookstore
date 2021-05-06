@@ -1,4 +1,5 @@
-%a.dropdown-toggle.sorting-dropdown.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+= link_to('#', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true',
+          'aria-expanded': 'false', class: 'dropdown-toggle sorting-dropdown lead small') do
   = t(".#{params[:sorting] || 'newest'}")
   %i.fa.fa-angle-down.dropdown-icon.pull-right
 %ul.dropdown-menu.sorting-menu

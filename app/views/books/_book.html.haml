@@ -5,8 +5,8 @@
       .thumb-hover
         .general-thumb-link-wrap
           = link_to book_path(book), class: 'thumb-hover-link show-link' do
-            %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
-          %a.buy-link.thumb-hover-link{href: "#"}
+            %i.fa.fa-eye.thumb-icon{ 'aria-hidden': 'true' }
+          = link_to '#', class: 'buy-link thumb-hover-link' do
             %i.fa.fa-shopping-cart.thumb-icon
   .general-thumb-info
     %p.title= book.short_title

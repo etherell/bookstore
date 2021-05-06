@@ -2,10 +2,10 @@
 
 RSpec.describe BooksHelper do
   describe '#category_filter_placeholder' do
-    let(:placeholder) { helper.category_filter_placeholder(params) }
-    let(:categories) { create_list(:category, 5) }
+    let(:placeholder) { helper.category_filter_placeholder(categories, params) }
+    let(:categories) { Category.all }
 
-    before { categories }
+    before { create_list(:category, 5) }
 
     context 'with categories and wrong params' do
       let(:params) { { category_id: 'wrong_category' } }

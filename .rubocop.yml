@@ -44,3 +44,7 @@ Metrics/BlockLength:
     - 'spec/**/*'
     - 'config/environments/*.rb'
     - 'config/routes.rb'
+
+LexicallyScopedActionFilter:
+  Exclude:
+    - 'app/controllers/application_controller.rb'
