@@ -8,7 +8,7 @@
         %span.icon-bar
         %span.icon-bar
       = link_to t('.bookstore'), root_path, class: 'navbar-brand'
-      %a.shop-link.pull-right.visible-xs{href: "#"}
+      %a.shop-link.pull-right.visible-xs{ href: '#' }
         %span.shop-icon
           %span.shop-quantity 3
     %a.shop-link.pull-right.hidden-xs{ href: '#' }
@@ -54,7 +54,7 @@
               = link_to t('.log_out'), destroy_user_session_path, method: 'delete', class: 'log-out-link'
           - else
             %li
-              = link_to 'Log in', new_user_session_path, class: 'my-account-link', class: 'log-in-link'
+              = link_to 'Log in', new_user_session_path, class: 'my-account-link log-in-link'
           - if current_user
             %li
               = link_to t('.my_account'), '#', class: 'my-account-link'
