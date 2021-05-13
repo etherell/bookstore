@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AddressesController < ApplicationController
+  before_action :setup_addresses, only: %i[new create]
   before_action :setup_forms, only: %i[new create]
 
   def new; end
@@ -23,9 +24,16 @@ class AddressesController < ApplicationController
                                              :city, :country_code, :zip, :phone, :type, :user_id)
   end
 
+  def setup_addresses
+    @billing_address = BillingAddress.new
+    @shipping_address = ShippingAddress.new
+    authorize @billing_address
+    authorize @shipping_address
+  end
+
   def setup_forms
-    @billing_form = Addresses::CreateForm.new(BillingAddress.new)
-    @shipping_form = Addresses::CreateForm.new(ShippingAddress.new)
+    @billing_form = Addresses::CreateForm.new(@billing_address)
+    @shipping_form = Addresses::CreateForm.new(@shipping_address)
   end
 
   def select_form

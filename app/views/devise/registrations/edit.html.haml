@@ -1,10 +1,11 @@
 %main.container
   = render 'partials/settings_menu'
-  #privacy.tab-pane
+  .tab-pane#privacy
     .row.mb-60
       .col-sm-5.email-form
         %p.in-gold-500.font-18.mb-25.page-title= t('.email_title')
-        = simple_form_for @update_email_form, url: update_email_path, html: { id: 'email-update', class: 'general-form-md', method: :put } do |f|
+        = simple_form_for(@update_email_form, url: update_email_path, html: { id: 'email-update',
+                          class: 'general-form-md', method: :put }) do |f|
           .form-group.mb-35
             = f.label :email, t('.email_title'), class: 'control-label input-label email-label'
             = f.input_field :email, id: 'email', class: 'form-control', placeholder: t('.email_placeholder')
@@ -14,28 +15,34 @@
             = f.submit t('.save'), class: 'btn btn-default mb-35'
       .col-sm-5.col-sm-offset-1.password-form
         %p.in-gold-500.font-18.mb-25= t('.password_title')
-        = simple_form_for @user, url: user_registration_path, html: { id: 'password-update', class: 'general-form-md divider-lg-bottom pb-25', method: :put } do |f|
+        = simple_form_for(@user, url: user_registration_path, html: { id: 'password-update',
+                          class: 'general-form-md divider-lg-bottom pb-25', method: :put }) do |f|
           .form-group.mb-30
             = f.label :current_password, t('.old_password'), class: 'control-label input-label old-password-label'
-            = f.input_field :current_password, autocomplete: "current-password", id: 'oldPassword', class: 'form-control', placeholder: t('.old_password')
+            = f.input_field :current_password, autocomplete: 'current-password', id: 'oldPassword',
+                            class: 'form-control', placeholder: t('.old_password')
             = f.full_error :current_password, class: 'text-danger'
           .form-group.mb-30
             = f.label :password, t('.new_password'), class: 'control-label input-label password-label'
-            = f.input_field :password, autocomplete: "new-password", id: 'password', class: 'form-control', placeholder: t('.new_password')
+            = f.input_field :password, autocomplete: 'new-password', id: 'password', class: 'form-control',
+                            placeholder: t('.new_password')
             = f.full_error :password, class: 'text-danger'
           .form-group.mb-40
-            = f.label :password_confirmation, t('.confirm_password'), class: 'control-label input-label confirmation-label'
-            = f.input_field :password_confirmation, autocomplete: "new-password", id: 'confirmPassword', class: 'form-control', placeholder: t('.confirm_password')
+            = f.label :password_confirmation, t('.confirm_password'),
+                      class: 'control-label input-label confirmation-label'
+            = f.input_field :password_confirmation, autocomplete: 'new-password', id: 'confirmPassword',
+                            class: 'form-control', placeholder: t('.confirm_password')
             = f.full_error :password_confirmation, class: 'text-danger'
           .general-text-align
             = f.submit t('.save'), class: 'btn-default btn mb-10'
       .col-sm-12.remove-account-form
         %p.in-gold-500.font-18.mb-25= t('.remove_account')
         .general-settings-btn
-          = button_to t('.remove_account_button'), user_registration_path, method: 'delete', class: 'remove-account-btn btn mb-20 mt-10', disabled: true
+          = button_to(t('.remove_account_button'), user_registration_path, method: 'delete',
+                      class: 'remove-account-btn btn mb-20 mt-10', disabled: true)
         .form-group.checkbox.general-settings-checkbox
           %label.checkbox-label
-            %input.checkbox-input{type: "checkbox", hidden: "true"}
+            %input.checkbox-input{ type: 'checkbox', hidden: 'true' }
             %span.checkbox-icon
               %i.fa.fa-check
             %span.checkbox-text= t('.remove_confirmation')

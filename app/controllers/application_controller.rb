@@ -24,8 +24,4 @@ class ApplicationController < ActionController::Base
   def set_js_flash
     gon.flash = flash
   end
-
-  def set_js_flash
-    gon.flash = flash
-  end
 end

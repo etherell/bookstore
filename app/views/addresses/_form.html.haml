@@ -23,7 +23,8 @@
       = f.full_error :zip, class: 'text-danger'
     .form-group
       = f.label :country_code, t('.country'), class: 'control-label input-label country-label'
-      = f.input_field :country_code, as: :country, id: 'country', class: 'form-control', include_blank: t('.country_placeholder')
+      = f.input_field :country_code, as: :country, id: 'country', class: 'form-control',
+                      include_blank: t('.country_placeholder')
       = f.full_error :country_code, class: 'text-danger'
     .form-group.mb-60
       = f.label :phone, t('.phone'), class: 'control-label input-label phone-label'

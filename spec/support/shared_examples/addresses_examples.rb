@@ -19,7 +19,7 @@ RSpec.shared_examples 'an address form with all inputs' do
 end
 
 RSpec.shared_examples 'a submitted form with success result' do
-  let(:params) { attributes_for(:address) }
+  let(:params) { attributes_for(:shipping_address) }
   let(:address) { Address.last }
 
   before do |test|

@@ -27,7 +27,7 @@ PreCommit:
   RubyCtiric:
     enabled: true
     quiet: false
-    command: ['rubycritic']
+    command: ['bundle', 'exec', 'rubycritic --format console']
 
 PrePush:
   Brakeman:

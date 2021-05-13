@@ -46,7 +46,7 @@ RSpec.describe 'Addresses' do
 
     context 'when billing form submitted with invalid first name' do
       let(:form) { new_address_page.billing_form }
-      let(:params) { attributes_for(:address, :with_invalid_first_name) }
+      let(:params) { attributes_for(:shipping_address, :with_invalid_first_name) }
       let(:error_message) { 'First name allows only letters' }
 
       it_behaves_like 'a submitted form with error'
@@ -54,7 +54,7 @@ RSpec.describe 'Addresses' do
 
     context 'when billing form submitted with invalid zip' do
       let(:form) { new_address_page.billing_form }
-      let(:params) { attributes_for(:address, :with_long_zip) }
+      let(:params) { attributes_for(:shipping_address, :with_long_zip) }
       let(:error_message) { 'Zip is too long (maximum is 10 characters)' }
 
       it_behaves_like 'a submitted form with error'
@@ -62,7 +62,7 @@ RSpec.describe 'Addresses' do
 
     context 'when shipping form submitted with invalid first name' do
       let(:form) { new_address_page.shipping_form }
-      let(:params) { attributes_for(:address, :with_invalid_first_name) }
+      let(:params) { attributes_for(:shipping_address, :with_invalid_first_name) }
       let(:error_message) { 'First name allows only letters' }
 
       it_behaves_like 'a submitted form with error'
@@ -70,7 +70,7 @@ RSpec.describe 'Addresses' do
 
     context 'when shipping form submitted with invalid zip' do
       let(:form) { new_address_page.shipping_form }
-      let(:params) { attributes_for(:address, :with_long_zip) }
+      let(:params) { attributes_for(:shipping_address, :with_long_zip) }
       let(:error_message) { 'Zip is too long (maximum is 10 characters)' }
 
       it_behaves_like 'a submitted form with error'

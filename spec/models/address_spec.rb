@@ -6,7 +6,7 @@ RSpec.describe Address do
   end
 
   describe '#country_name' do
-    let(:address) { create(:address, country_code: 'US') }
+    let(:address) { create(:shipping_address, country_code: 'US') }
     let(:expected_result) { 'United States' }
 
     it 'returns apropriate country name' do

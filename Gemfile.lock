@@ -206,6 +206,8 @@ GEM
       rainbow (>= 2.0.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.11.0)
+    ice_nine (0.11.2)
     inherited_resources (1.13.0)
       actionpack (>= 5.2, < 6.2)
       has_scope (~> 0.6)

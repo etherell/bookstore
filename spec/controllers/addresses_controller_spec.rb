@@ -21,7 +21,7 @@ RSpec.describe AddressesController do
     end
 
     context 'when address created' do
-      let(:address_params) { attributes_for(:address, user_id: user.id) }
+      let(:address_params) { attributes_for(:shipping_address, user_id: user.id) }
 
       it { is_expected.to respond_with(302) }
       it { is_expected.to redirect_to(action: :new) }
@@ -33,7 +33,7 @@ RSpec.describe AddressesController do
     end
 
     context 'when params not valid' do
-      let(:address_params) { attributes_for(:address, user_id: nil) }
+      let(:address_params) { attributes_for(:shipping_address, user_id: nil) }
 
       it { is_expected.to respond_with(422) }
       it { is_expected.to render_template(:new) }

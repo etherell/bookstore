@@ -58,6 +58,7 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.10', '>= 1.10.2', require: false
   gem 'rubocop-rails', '~> 2.7', '>= 2.7.1', require: false
   gem 'rubocop-rspec', '~> 2.2', require: false
+  gem 'rubycritic', '~> 4.6', '>= 4.6.1', require: false
 end
 
 group :development do
@@ -65,7 +66,6 @@ group :development do
   gem 'httplog', '~> 1.4', '>= 1.4.3'
   gem 'letter_opener', '~> 1.7'
   gem 'listen', '~> 3.2'
-  gem 'rubycritic', '~> 4.6', '>= 4.6.1', require: false
   gem 'spring', '~> 2.1', '>= 2.1.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
