@@ -5,7 +5,7 @@ module Pages
     module Sessions
       class New < SitePrism::Page
         include Warden::Test::Helpers
-        set_url '/users/login'
+        set_url '/users/sign_in'
 
         element :toaster, '.toast-message'
         element :page_title, '.general-login-title', text: I18n.t('devise.sessions.new.log_in')

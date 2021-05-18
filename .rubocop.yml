@@ -50,3 +50,7 @@ LexicallyScopedActionFilter:
   Exclude:
     - 'app/controllers/application_controller.rb'
     - 'app/controllers/users/registrations_controller.rb'
+
+Rails/HasAndBelongsToMany:
+  Exclude:
+    - 'app/models/role.rb'

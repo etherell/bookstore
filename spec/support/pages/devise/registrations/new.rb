@@ -4,7 +4,7 @@ module Pages
   module Devise
     module Registrations
       class New < SitePrism::Page
-        set_url '/users/signup'
+        set_url '/users/sign_up'
 
         element :toaster, '.toast-message'
         element :page_title, '.general-login-title', text: I18n.t('devise.registrations.new.title')

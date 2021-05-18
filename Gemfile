@@ -30,6 +30,7 @@ gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-facebook', '8.0.0'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit', '~> 2.1'
+gem 'rolify', '~> 6.0'
 
 # frontend
 gem 'country_select', '~> 5.0', '>= 5.0.1'

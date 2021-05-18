@@ -9,3 +9,5 @@ ActiveStorage::VariantRecord:
   enabled: false
 Address:
   enabled: false
+ActiveAdmin::Comment:
+  enabled: false
