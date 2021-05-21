@@ -56,7 +56,7 @@ en:
         password: Password
         confirmation: Confirmation
         remember_me: Remember me
-        account_question:  Already have an Account?
+        have_account:  Already have an Account?
         sign_up: Sign Up
         log_in: Log in
 
@@ -73,9 +73,9 @@ en:
         or: or
         forgot_password: Forgot password?
         remember_me: Remember me
-        email: Email
+        email: Enter
         password: Password
-        account_question: "Don't have an Account?"
+        dont_have_account: Don’t have an Account?
         log_in: Log In
         sign_up: Sign Up
 
@@ -88,7 +88,6 @@ en:
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
-      password_complexity: 'not met requirements. Please use: 1 uppercase, 1 lowercase and 1 digit'
       already_confirmed: "was already confirmed, please try signing in"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"

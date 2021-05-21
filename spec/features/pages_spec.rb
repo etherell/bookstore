@@ -3,12 +3,8 @@
 RSpec.describe 'Pages' do
   describe '#index' do
     let(:pages_index_page) { Pages::Pages::Index.new }
-    let(:user) { create(:user) }
 
-    before do
-      login_as(user, scope: :user)
-      pages_index_page.load
-    end
+    before { pages_index_page.load }
 
     context 'when header elements present' do
       let(:header) { pages_index_page.header }
