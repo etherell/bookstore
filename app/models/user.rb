@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  PASSWORD_FORMAT = /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]*\z/.freeze
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,9 +8,8 @@ class User < ApplicationRecord
          omniauth_providers: [:facebook]
 
   validates :email, :password, presence: true
-  validates :password, format: { with: PASSWORD_FORMAT, message: I18n.t('errors.messages.password_complexity') }
-
-  after_create :send_welcome_email
+  validates :password, length: { in: 6..20 }
+  validates :reset_password_token, uniqueness: true
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -25,13 +22,9 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
-      user.password = SecureRandom.base58(20)
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+      # user.image = auth.info.image # assuming the user model has an image
     end
-  end
-
-  private
-
-  def send_welcome_email
-    UserMailer.welcome_message(self).deliver_now
   end
 end

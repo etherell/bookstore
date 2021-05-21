@@ -15,7 +15,7 @@ module Pages
 
       section :footer, 'footer' do
         element :home_link, 'a.home-link', text: I18n.t('partials.footer.home')
-        element :shop_link, 'a.shop-footer-link', text: I18n.t('partials.footer.shop')
+        element :shop_link, 'a.shop-link', text: I18n.t('partials.footer.shop')
         element :orders_link, 'a.orders-link', text: I18n.t('partials.footer.orders')
         element :settings_link, 'a.settings-link', text: I18n.t('partials.footer.settings')
       end
