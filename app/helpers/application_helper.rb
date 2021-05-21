@@ -2,4 +2,8 @@
 
 module ApplicationHelper
   include Pundit
+
+  def current_user
+    nil
+  end
 end
