@@ -6,7 +6,7 @@
           %li
             = link_to t('.home'), root_path, class: 'nav-link home-link'
           %li
-            = link_to t('.shop'), books_path, class: 'nav-link shop-footer-link'
+            = link_to t('.shop'), books_path, class: 'nav-link shop-link'
           %li
             = link_to t('.orders'), '#', class: 'nav-link orders-link'
           %li
@@ -14,7 +14,7 @@
 
       .col-sm-3
         %p.general-nav-mail= t('.email')
-        %p.general-nav-number= t('.phone')
+        %p.general-nav-number= t('.number')
         %ul.list-inline.general-align
           %li
             = link_to 'https://www.facebook.com/konstantin.stryapkin', class: 'nav-link' do
