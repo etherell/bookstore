@@ -7,7 +7,7 @@ $(document).ready(() => {
   switch (flash_name) {
     case "error":
      return toastr.error(flash_message);
-    case "succes":
+    case "success":
       return toastr.success(flash_message);
     default:
       return toastr.info(flash_message);

@@ -18,5 +18,12 @@ en:
       photo: Photo
       web_design: Web design
       my_account: My account
-      log_out: Log out
       log_in: Log in
+      sign_up: Sign up
+      log_out: Log out
+      settings: Settings
+
+    settings_menu:
+      address: Address
+      privacy: Privacy
+      title: Settings
