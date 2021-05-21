@@ -7,8 +7,6 @@ en:
       settings: Settings
       email: support@bookstore.com
       phone: (555)-555-5555
-      facebook: https://www.facebook.com/konstantin.stryapkin
-      instagram: https://www.instagram.com/stryapkin_kos/'
 
     header:
       bookstore: Bookstore
@@ -19,4 +17,3 @@ en:
       web_design: Web design
       my_account: My account
       log_out: Log out
-      log_in: Log in
