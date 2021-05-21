@@ -33,7 +33,7 @@
               = link_to t('.log_out'), destroy_user_session_path, method: 'delete', class: 'log-out-link'
           - else
             %li
-              = link_to t('.log_in'), new_user_session_path, class: 'my-account-link'
+              = link_to 'Log in', new_user_session_path, class: 'my-account-link'
           - if current_user
             %li
               = link_to t('.my_account'), '#', class: 'my-account-link'
@@ -54,7 +54,7 @@
               = link_to t('.log_out'), destroy_user_session_path, method: 'delete', class: 'log-out-link'
           - else
             %li
-              = link_to t('.log_in'), new_user_session_path, class: 'my-account-link log-in-link'
+              = link_to 'Log in', new_user_session_path, class: 'my-account-link log-in-link'
           - if current_user
             %li
               = link_to t('.my_account'), '#', class: 'my-account-link'
