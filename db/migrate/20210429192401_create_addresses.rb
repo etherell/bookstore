@@ -9,7 +9,7 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
       t.string :country_code, null: false, limit: 50
       t.string :phone, null: false, limit: 15
       t.string :type, null: false
-      t.references :user, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true, on_delete: :cascade
 
       t.timestamps
     end
