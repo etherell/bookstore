@@ -112,16 +112,17 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  # Mailgun
+  # Google smtp settings
 
-  config.action_mailer.smtp_settings = {
-    port: ENV['MAILGUN_SMTP_PORT'],
-    address: ENV['MAILGUN_SMTP_SERVER'],
-    user_name: ENV['MAILGUN_SMTP_LOGIN'],
-    password: ENV['MAILGUN_SMTP_PASSWORD'],
-    domain: 'etherell-bookstore.herokuapp.com',
-    authentication: :plain
-  }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'etherell-bookstore.herokuapp.com' }
+
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'smtp.gmail.com',
+    user_name: Rails.application.credentials.dig(:smtp, :email),
+    password: Rails.application.credentials.dig(:smtp, :password),
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 end

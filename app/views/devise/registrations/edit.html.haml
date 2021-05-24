@@ -1,37 +1,50 @@
-%h2
-  = t('.title', resource: resource_name.to_s.humanize)
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render 'devise/shared/error_messages', resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: 'email'
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      = t('.confirm_notification', email: resource.unconfirmed_email)
-  .field
-    = f.label :password
-    %i= t('.password_instruction')
-    %br/
-    = f.password_field :password, autocomplete: 'new-password'
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        = t('.minimum_characters')
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: 'new-password'
-  .field
-    = f.label :current_password
-    %i= t('.current_password_instruction')
-    %br/
-    = f.password_field :current_password, autocomplete: 'current-password'
-  .actions
-    = f.submit 'Update'
-%h3= t('.cancel_account')
-%span= t('.cancel_question')
-%span= button_to(t('.cancel_account'), registration_path(resource_name),
-                    data: { confirm: t('.confirmation') }, method: :delete)
-= link_to t('.back'), :back
+%main.container
+  = render 'partials/settings_menu'
+  .tab-pane#privacy
+    .row.mb-60
+      .col-sm-5.email-form
+        %p.in-gold-500.font-18.mb-25.page-title= t('.email_title')
+        = simple_form_for(@update_email_form, url: update_email_path, html: { id: 'email-update',
+                          class: 'general-form-md', method: :put }) do |f|
+          .form-group.mb-35
+            = f.label :email, t('.email_title'), class: 'control-label input-label email-label'
+            = f.input_field :email, id: 'email', class: 'form-control', placeholder: t('.email_placeholder')
+            = f.full_error :email, class: 'text-danger'
+            = f.hidden_field :id, value: current_user.id
+          .general-text-align
+            = f.submit t('.save'), class: 'btn btn-default mb-35'
+      .col-sm-5.col-sm-offset-1.password-form
+        %p.in-gold-500.font-18.mb-25= t('.password_title')
+        = simple_form_for(@user, url: user_registration_path, html: { id: 'password-update',
+                          class: 'general-form-md divider-lg-bottom pb-25', method: :put }) do |f|
+          .form-group.mb-30
+            = f.label :current_password, t('.old_password'), class: 'control-label input-label old-password-label'
+            = f.input_field :current_password, autocomplete: 'current-password', id: 'oldPassword',
+                            class: 'form-control', placeholder: t('.old_password')
+            = f.full_error :current_password, class: 'text-danger'
+          .form-group.mb-30
+            = f.label :password, t('.new_password'), class: 'control-label input-label password-label'
+            = f.input_field :password, autocomplete: 'new-password', id: 'password', class: 'form-control',
+                            placeholder: t('.new_password')
+            = f.full_error :password, class: 'text-danger'
+          .form-group.mb-40
+            = f.label :password_confirmation, t('.confirm_password'),
+                      class: 'control-label input-label confirmation-label'
+            = f.input_field :password_confirmation, autocomplete: 'new-password', id: 'confirmPassword',
+                            class: 'form-control', placeholder: t('.confirm_password')
+            = f.full_error :password_confirmation, class: 'text-danger'
+          .general-text-align
+            = f.submit t('.save'), class: 'btn-default btn mb-10'
+      .col-sm-12.remove-account-form
+        %p.in-gold-500.font-18.mb-25= t('.remove_account')
+        .general-settings-btn
+          = button_to(t('.remove_account_button'), user_registration_path, method: 'delete',
+                      class: 'remove-account-btn btn mb-20 mt-10', disabled: true)
+        .form-group.checkbox.general-settings-checkbox
+          %label.checkbox-label
+            %input.checkbox-input{ type: 'checkbox', hidden: 'true' }
+            %span.checkbox-icon
+              %i.fa.fa-check
+            %span.checkbox-text= t('.remove_confirmation')
+
+= javascript_pack_tag 'users/button-disabler'

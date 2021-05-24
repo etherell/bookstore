@@ -15,7 +15,9 @@ gem 'money-rails', '~> 1.14'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
+gem 'reform-rails', '~> 0.2.2'
 gem 'require_all', '~> 3.0'
+gem 'virtus', '~> 1.0', '>= 1.0.5'
 gem 'will_paginate', '~> 3.3'
 # gem 'redis', '~> 4.0'
 # gem 'image_processing', '~> 1.2'
@@ -23,13 +25,14 @@ gem 'will_paginate', '~> 3.3'
 # authentication and authorization
 gem 'activeadmin', '~> 2.9'
 gem 'bcrypt', '~> 3.1.7'
-gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
+gem 'devise', '~> 4.8'
 gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-facebook', '8.0.0'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit', '~> 2.1'
 
 # frontend
+gem 'country_select', '~> 5.0', '>= 5.0.1'
 gem 'gon', '~> 6.4'
 gem 'haml', '~> 5.2', '>= 5.2.1'
 gem 'sass-rails', '>= 6'
@@ -55,10 +58,12 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.10', '>= 1.10.2', require: false
   gem 'rubocop-rails', '~> 2.7', '>= 2.7.1', require: false
   gem 'rubocop-rspec', '~> 2.2', require: false
+  gem 'rubycritic', '~> 4.6', '>= 4.6.1', require: false
 end
 
 group :development do
   gem 'bullet', '~> 6.1', '>= 6.1.4'
+  gem 'httplog', '~> 1.4', '>= 1.4.3'
   gem 'letter_opener', '~> 1.7'
   gem 'listen', '~> 3.2'
   gem 'spring', '~> 2.1', '>= 2.1.1'
