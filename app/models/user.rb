@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  rolify
   PASSWORD_FORMAT = /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]*\z/.freeze
 
   devise :database_authenticatable, :registerable,
@@ -14,6 +15,7 @@ class User < ApplicationRecord
   has_many :shipping_addresses, dependent: :destroy
 
   after_create :send_welcome_email
+  after_create :assign_default_role
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -35,4 +37,12 @@ class User < ApplicationRecord
   def send_welcome_email
     UserMailer.welcome_message(self).deliver_now
   end
+
+  def assign_default_role
+    add_role(:customer) if roles.blank?
+  end
+
+  # def validate_password?
+  #   !persisted? || encrypted_password.blank?
+  # end
 end
